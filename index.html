@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-a-Sketch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Etch-a-Sketch</h1>
+        <div class="game">
+            <div class="controls">
+                <button id="reset" onclick="createBoard()">reset</button>
+                <div id="color-control">
+                    <button onclick="toggleColor()">color</button>
+                    <input type="color" id="color-input" onchange="setColor(this.value)">
+                </div>
+                <button id="rainbow" onclick="toggleRainbow()">rainbow</button>
+                <button id="gridsize-btn" onclick="toggleGridSize()">Size</button>
+            </div>
+            <div id="board"></div>
+        </div>
+    </div>
+</body>
+</html>

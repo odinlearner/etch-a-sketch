@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    --clr-text: hsl(0, 13%, 92%);
+    --clr-accent: hsl(224, 59%, 15%);
+    background-color: hsl(82, 16%, 45%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+    font-size: 36px;
+    margin: .75em 0;
+    text-align: center;
+    color: var(--clr-text);
+    text-shadow: 0 0 3px black;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 720px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+button, #color-control {
+    flex: 1;
+    font-size: 18px;
+    padding: .5rem 1.5rem;
+    color: var(--clr-accent);
+    border: 3px solid currentColor;
+    background-color: transparent;
+}
+
+#board {
+    width: 100%;
+    border: 1px solid gray;
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(0, 0%, 100%);
+}
+
+.row {
+    flex: 1;
+    display: flex;
+}
+
+.cell {
+    flex: 1;
+    outline: 1px solid hsl(82, 5%, 85%);
+}
+
+#rainbow.active {
+    /* border-image: linear-gradient(to bottom right, red,orange,yellow,green,blue,indigo,violet); */
+    border-image: conic-gradient(from var(--angle), red,orange,yellow,green,blue,indigo,violet, red) 1;
+    animation: 6s rotate linear infinite;
+}
+
+@keyframes rotate {
+	to { --angle: 360deg; }
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+#color-control {
+    flex: 1;
+    position: relative;
+}
+#color-control button {
+   border: none;
+   padding: 0;
+   margin-right: 16px;;
+}
+#color-control input {
+    position: absolute;
+    right: -4px;
+    clip-path: circle(8px);
+    top:0;
+    bottom: 0;
+    height: 100%;
+}
